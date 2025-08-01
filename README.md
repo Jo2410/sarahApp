@@ -89,7 +89,7 @@ Run the development server:
 bash
 Copy
 Edit
-npm run dev
+npm run start:dev
 📬 API Testing
 Use the Postman collection below to explore and test all endpoints:
 
@@ -114,11 +114,4 @@ efset.org
 📞 Contact
 Made by jo2410
 Feel free to reach out via GitHub or open an issue.
-
-yaml
-Copy
-Edit
-
-
-
 
