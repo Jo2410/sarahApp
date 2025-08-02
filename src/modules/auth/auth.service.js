@@ -4,7 +4,7 @@ import { asyncHandler, successResponse } from "../../utils/response.js";
 import * as DBService from '../../DB/db.service.js'
 import { compareHash, generateHash } from "../../utils/security/hash.security.js";
 import {generateEncryption} from '../../utils/security/encryption.security.js'
-import { generateToken } from "../../utils/security/token.security.js";
+import { generateToken, getSignatures, signatureLevelEnum } from "../../utils/security/token.security.js";
 
 
 export const signup=asyncHandler(
@@ -69,19 +69,9 @@ export const login=asyncHandler(
         const signatureLevel= user.role != roleEnum.user ? 'System':'Bearer'
         console.log(signatureLevel);
         
-        let signatures={accessSignature:undefined,refreshSignature:undefined}
-
-        switch (signatureLevel) {
-            case 'System':
-                signatures.accessSignature=process.env.ACCESS_SYSTEM_TOKEN_SIGNATURE
-                signatures.refreshSignature=process.env.REFRESH_SYSTEM_TOKEN_SIGNATURE
-                break;
-        
-            default:
-                signatures.accessSignature=process.env.ACCESS_USER_TOKEN_SIGNATURE
-                signatures.refreshSignature=process.env.REFRESH_USER_TOKEN_SIGNATURE
-                break;
-        }
+        let signatures=getSignatures({
+            signatureLevel:user.role !=roleEnum.user ? signatureLevelEnum.system:signatureLevelEnum.bearer
+        })
         console.log(signatures);
         
 
