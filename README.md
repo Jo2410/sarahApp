@@ -147,5 +147,3 @@ Edit
 - Clarified `.env` structure for system vs user tokens
 - Polished markdown formatting and section organization
 - Included accurate endpoint documentation
-
-Let me know if you'd like this saved as a file or added to your repo directly.
