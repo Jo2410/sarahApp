@@ -4,7 +4,7 @@ import { asyncHandler, successResponse } from "../../utils/response.js";
 import * as DBService from '../../DB/db.service.js'
 import { compareHash, generateHash } from "../../utils/security/hash.security.js";
 import {generateEncryption} from '../../utils/security/encryption.security.js'
-import { generateToken, getSignatures, signatureLevelEnum } from "../../utils/security/token.security.js";
+import { generateLoginCredentials, generateToken, getSignatures, signatureLevelEnum } from "../../utils/security/token.security.js";
 
 
 export const signup=asyncHandler(
@@ -69,26 +69,9 @@ export const login=asyncHandler(
         const signatureLevel= user.role != roleEnum.user ? 'System':'Bearer'
         console.log(signatureLevel);
         
-        let signatures=getSignatures({
-            signatureLevel:user.role !=roleEnum.user ? signatureLevelEnum.system:signatureLevelEnum.bearer
-        })
-        console.log(signatures);
-        
+        const credentials=await generateLoginCredentials({user})
 
-        const access_token = await generateToken({
-            payload:{_id:user._id},
-            signature:signatures.accessSignature
-        })
-
-        const refresh_token =await generateToken({
-            payload:{_id:user._id},
-            signature:signatures.refreshSignature,
-            options:{
-                
-            }
-        })
-
-        return successResponse({res,data:{access_token,refresh_token}}) 
+        return successResponse({res,data:{credentials}}) 
 }
 )
 
