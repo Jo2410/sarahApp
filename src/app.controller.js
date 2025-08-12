@@ -7,14 +7,23 @@ import authController from './modules/auth/auth.controller.js'
 import userController from './modules/user/user.controller.js'
 import express from 'express'
 import { globalErrorHandling } from './utils/response.js'
+import cors from 'cors'
+
+
+
 
 const bootstrap=async()=>{
     const app=express()
     const port= process.env.PORT || 5000
     //convert Buffer Data
     app.use(express.json())
+
+    //cors
+    app.use(cors())
+
     //DB
     await connectDB()
+    
 
     //app-routing
     app.get('/',(req,res)=>res.json({message:'welcome to the app 👀'}))
@@ -26,6 +35,7 @@ const bootstrap=async()=>{
 
     app.use(globalErrorHandling)
 
+    
 
 
 

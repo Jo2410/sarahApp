@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 export let genderEnum={male:'male',female:'female'}
 export let roleEnum={user:'user',admin:'admin'}
-
+export let providerEnum={system:'system',google:'google'}
 
 
 
@@ -20,7 +20,18 @@ const userSchema= new mongoose.Schema({
         required:true,
         unique:true
     },
-    password:{type:String,required:true},
+    password:{type:String,
+        required:function () {
+            console.log({DOC:this});
+            
+            return this.provider === providerEnum.system ? true : false
+        }
+    },
+    phone:{type:String,
+        required: function () {
+            return this.provider=== providerEnum.system ? true : false 
+        }
+    },
     gender:{
         type:String,
         enum:{values:Object.values(genderEnum),message:`gender only allow ${Object.values(genderEnum)}`},
@@ -32,8 +43,11 @@ const userSchema= new mongoose.Schema({
         default:roleEnum.user
     },
 
-    phone:String,
-    confirmEmail:Date
+    
+    provider:{type:String,enum:Object.values(providerEnum),default:providerEnum.system},
+    confirmEmail:Date,
+    confirmEmailOtp:String,
+    picture:String
 
 },{
     timestamps:true ,
