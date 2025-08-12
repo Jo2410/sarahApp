@@ -132,7 +132,7 @@ EF SET English Certificate – 62/100
 https://www.efset.org/cert
 
 📞 Contact
-Made by jo2410
+Made by megatron24100@gmail.com
 Feel free to reach out via GitHub or open an issue.
 
 pgsql
