@@ -1,5 +1,5 @@
-🧠 Sarah App Backend
-A secure and scalable backend API for the Sarah App, built with Node.js, Express, and MongoDB. This project includes user authentication, encrypted data handling, token-based session management, email verification, Gmail OAuth signup, and secure refresh token workflows.
+# 🧠 Sarah App Backend
+A secure and scalable backend API for the Sarah App, built with Node.js, Express, and MongoDB. This project includes user authentication, encrypted data handling, token-based session management, and secure refresh token workflows.
 
 🚀 Features
 ✅ User registration & login with validation
@@ -141,6 +141,8 @@ Secure token generation & storage practices
 
 CORS-enabled API for cross-domain communication
 
+Email verification with HTML templates & OTP-based activation
+
 🛠 Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
@@ -154,5 +156,3 @@ https://www.efset.org/cert
 
 📞 Contact
 Made by megatron24100@gmail.com
-
-
