@@ -1,64 +1,77 @@
-# 🧠 Sarah App Backend
+🧠 Sarah App Backend
+A secure and scalable backend API for the Sarah App, built with Node.js, Express, and MongoDB.
+This project provides full-featured authentication, encrypted data handling, token-based sessions, email verification via OTP, and Google OAuth login.
 
-A secure and scalable backend API for the Sarah App, built with Node.js, Express, and MongoDB. This project includes user authentication, encrypted data handling, token-based session management, and secure refresh token workflows.
+🚀 Features
+✅ User Registration & Login (with server-side validation)
 
----
+📧 Email verification via OTP (One-Time Password)
 
-## 🚀 Features
+🌐 Google OAuth signup & login
 
-- ✅ User registration & login with validation
-- 🔒 Password hashing using **bcrypt**
-- 🔐 JWT-based access & refresh tokens
-- 🧠 Role-based token signatures: `Bearer` (users) & `System` (admins)
-- 🔁 Secure refresh token endpoint
-- 🔄 Encrypted phone number field (AES)
-- ⏳ Token expiration handling with custom lifetimes
-- 📂 Modular code structure (controllers, services, middlewares)
-- 🌍 MongoDB Atlas with Mongoose
-- 🧪 Postman collection for API testing
+🔒 Password hashing using bcrypt
 
----
+🔐 JWT-based access & refresh tokens
 
-## 📦 Technologies Used
+🧠 Role-based token signatures: Bearer (users) & System (admins)
 
-- Node.js
-- Express.js
-- MongoDB (Atlas)
-- Mongoose
-- JWT (`jsonwebtoken`)
-- bcrypt
-- dotenv
+🔁 Secure refresh token endpoint
 
----
+🔄 Encrypted phone number field (AES)
 
-## 📁 Project Structure
+⏳ Token expiration handling with custom lifetimes
 
+📂 Modular & maintainable folder structure
+
+📬 Event-based email sending using nodemailer & Gmail SMTP
+
+🌍 MongoDB Atlas with Mongoose ORM
+
+🧪 Postman collection for API testing
+
+📦 Technologies Used
+Node.js
+
+Express.js
+
+MongoDB (Atlas) + Mongoose
+
+JWT (jsonwebtoken)
+
+bcrypt
+
+dotenv
+
+nodemailer
+
+google-auth-library
+
+📁 Project Structure
+bash
+Copy
+Edit
 sarahApp/
 │
 ├── src/
-│ ├── controllers/ # Route logic
-│ ├── middleware/ # Auth middleware
-│ ├── models/ # Mongoose schemas
-│ ├── routes/ # API route definitions
-│ ├── utils/ # Security utils: hashing, encryption, JWT
-│ └── DB/ # DB connection & services
+│   ├── controllers/   # Route handlers
+│   ├── middleware/    # Auth & validation middleware
+│   ├── models/        # Mongoose schemas
+│   ├── routes/        # API route definitions
+│   ├── utils/         # Security helpers: hashing, encryption, JWT
+│   ├── services/      # Business logic & DB abstraction
+│   ├── events/        # Email event listeners
+│   └── DB/            # DB connection & services
 │
 ├── .env
 ├── .gitignore
 ├── package.json
 └── README.md
+⚙️ Environment Variables
+Create a .env file in the root with:
 
-makefile
+env
 Copy
 Edit
-
----
-
-## ⚙️ Environment Variables
-
-Create a `.env` file in the root with:
-
-```env
 PORT=3000
 DB_URI="your-mongodb-uri"
 SALT=12
@@ -73,25 +86,32 @@ REFRESH_TOKEN_EXPIRES_IN=31536000
 
 ACCESS_SYSTEM_TOKEN_SIGNATURE="your-admin-access-token-secret"
 REFRESH_SYSTEM_TOKEN_SIGNATURE="your-admin-refresh-token-secret"
-🛑 Important: Do not commit this file. It's ignored via .gitignore.
+
+APP_EMAIL="your-gmail-address"
+APP_PASSWORD="your-gmail-app-password"
+
+facebookLink="https://facebook.com/yourpage"
+instegram="https://instagram.com/yourpage"
+twitterLink="https://twitter.com/yourpage"
+🛑 Important: .env is ignored in .gitignore — never commit it to GitHub.
 
 ▶️ Getting Started
-Clone the repository:
+1. Clone the repository:
 
 bash
 Copy
 Edit
 git clone https://github.com/your-username/sarahApp.git
 cd sarahApp
-Install dependencies:
+2. Install dependencies:
 
 bash
 Copy
 Edit
 npm install
-Add your .env file.
+3. Add your .env file.
 
-Run the development server:
+4. Run the development server:
 
 bash
 Copy
@@ -100,12 +120,15 @@ npm run start:dev
 📬 API Testing
 Use the Postman collection to explore and test all endpoints:
 
-👉 View Postman Documentation  https://documenter.getpostman.com/view/45299579/2sB3B7PDuo
+👉 View Postman Documentation
 
 ✅ Sample Endpoints
 Method	Endpoint	Description
-POST	/api/auth/signup	Register a new user
-POST	/api/auth/login	User login
+POST	/api/auth/signup	Register a new user (system)
+POST	/api/auth/login	User login (system)
+POST	/api/auth/signup/gmail	Signup with Google account
+POST	/api/auth/login/gmail	Login with Google account
+POST	/api/auth/verify-email	Verify email with OTP
 GET	/api/user/	Get user profile (access token)
 GET	/api/user/refresh-token	Refresh token for new credentials
 
@@ -118,10 +141,15 @@ Access & Refresh token separation with independent expiration
 
 Middleware authentication with decoded JWT payload
 
-Secure token generation & storage practices
+Secure password hashing with bcrypt
+
+Email verification via OTP before account activation
+
+Google OAuth 2.0 login/signup with token verification
 
 🛠 Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+Pull requests are welcome.
+For major changes, please open an issue first to discuss what you would like to change.
 
 🛡️ License
 This project is open source and available under the MIT License.
@@ -129,21 +157,8 @@ This project is open source and available under the MIT License.
 🌐 Languages & Skills
 English – C1 Advanced
 EF SET English Certificate – 62/100
-https://www.efset.org/cert
+View Certificate
 
 📞 Contact
-Made by megatron24100@gmail.com
-Feel free to reach out via GitHub or open an issue.
-
-pgsql
-Copy
-Edit
-
----
-
-### ✅ Summary of Updates
-
-- Added new features like token refreshing, role-based signatures, encrypted phone numbers
-- Clarified `.env` structure for system vs user tokens
-- Polished markdown formatting and section organization
-- Included accurate endpoint documentation
+📧 Email: megatron24100@gmail.com
+🐙 GitHub: jo2410
