@@ -1,13 +1,12 @@
-##🧠 Sarah App Backend
-A secure and scalable backend API for the Sarah App, built with Node.js, Express, and MongoDB.
-This project includes user authentication, email verification, Gmail OAuth signup, encrypted data handling, token-based session management, and secure refresh token workflows.
+🧠 Sarah App Backend
+A secure and scalable backend API for the Sarah App, built with Node.js, Express, and MongoDB. This project includes user authentication, encrypted data handling, token-based session management, email verification, Gmail OAuth signup, and secure refresh token workflows.
 
 🚀 Features
 ✅ User registration & login with validation
 
 📧 Email verification using Nodemailer & HTML templates
 
-🔢 OTP-based verification for secure account activation
+🔢 OTP-based account activation
 
 🔒 Password hashing using bcrypt
 
@@ -27,7 +26,7 @@ This project includes user authentication, email verification, Gmail OAuth signu
 
 📂 Modular code structure (controllers, services, middlewares)
 
-🌐 MongoDB Atlas with Mongoose
+🌍 MongoDB Atlas with Mongoose
 
 🧪 Postman collection for API testing
 
@@ -51,23 +50,21 @@ nodemailer
 cors
 
 📁 Project Structure
-bash
-Copy
-Edit
 sarahApp/
 │
 ├── src/
-│   ├── controllers/    # Route logic
-│   ├── middleware/     # Auth middleware
-│   ├── models/         # Mongoose schemas
-│   ├── routes/         # API route definitions
-│   ├── utils/          # Security utils: hashing, encryption, JWT
-│   └── DB/             # DB connection & services
+│ ├── controllers/ # Route logic
+│ ├── middleware/ # Auth middleware
+│ ├── models/ # Mongoose schemas
+│ ├── routes/ # API route definitions
+│ ├── utils/ # Security utils: hashing, encryption, JWT
+│ └── DB/ # DB connection & services
 │
 ├── .env
 ├── .gitignore
 ├── package.json
 └── README.md
+
 ⚙️ Environment Variables
 Create a .env file in the root with:
 
@@ -91,25 +88,25 @@ REFRESH_SYSTEM_TOKEN_SIGNATURE="your-admin-refresh-token-secret"
 
 APP_EMAIL="your-email@gmail.com"
 APP_PASSWORD="your-email-password"
-🛑 Important: Do not commit this file. It’s ignored via .gitignore.
+🛑 Important: Do not commit this file. It's ignored via .gitignore.
 
 ▶️ Getting Started
-1. Clone the repository:
+Clone the repository:
 
 bash
 Copy
 Edit
 git clone https://github.com/your-username/sarahApp.git
 cd sarahApp
-2. Install dependencies:
+Install dependencies:
 
 bash
 Copy
 Edit
 npm install
-3. Add your .env file.
+Add your .env file.
 
-4. Run the development server:
+Run the development server:
 
 bash
 Copy
@@ -117,23 +114,26 @@ Edit
 npm run start:dev
 📬 API Testing
 Use the Postman collection to explore and test all endpoints:
-👉 View Postman Documentation
+
+👉 View Postman Documentation https://documenter.getpostman.com/view/45299579/2sB3B7PDuo
 
 ✅ Sample Endpoints
+
 Method	Endpoint	Description
 POST	/api/auth/signup	Register a new user
 POST	/api/auth/login	User login
 POST	/api/auth/signup/gmail	Signup with Gmail OAuth
+POST	/api/auth/verify-email	Verify email with OTP
 GET	/api/user/	Get user profile (access token)
 GET	/api/user/refresh-token	Refresh token for new credentials
-POST	/api/auth/verify-email	Verify email with OTP
 
 🔐 Security Features
-AES encryption for phone numbers
+
+Encrypted phone numbers using AES
 
 Role-based token signature handling (different secrets for user/admin)
 
-Access & refresh token separation with independent expiration
+Access & Refresh token separation with independent expiration
 
 Middleware authentication with decoded JWT payload
 
@@ -142,12 +142,17 @@ Secure token generation & storage practices
 CORS-enabled API for cross-domain communication
 
 🛠 Contributing
-Pull requests are welcome.
-For major changes, please open an issue first to discuss what you would like to change.
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 🛡️ License
 This project is open source and available under the MIT License.
 
+🌐 Languages & Skills
+English – C1 Advanced
+EF SET English Certificate – 62/100
+https://www.efset.org/cert
+
 📞 Contact
 Made by megatron24100@gmail.com
-Feel free to reach out via GitHub or open an issue.
+
+
