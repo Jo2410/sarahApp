@@ -1,37 +1,33 @@
-🧠 Sarah App Backend
+##🧠 Sarah App Backend
 A secure and scalable backend API for the Sarah App, built with Node.js, Express, and MongoDB.
-It supports advanced authentication workflows, email verification with OTP, secure data handling, and Gmail OAuth integration.
+This project includes user authentication, email verification, Gmail OAuth signup, encrypted data handling, token-based session management, and secure refresh token workflows.
 
 🚀 Features
-✅ User registration & login with request validation
+✅ User registration & login with validation
 
 📧 Email verification using Nodemailer & HTML templates
 
 🔢 OTP-based verification for secure account activation
 
-🔒 Password hashing with bcrypt
+🔒 Password hashing using bcrypt
 
 🔐 JWT-based access & refresh tokens
 
-🧠 Role-based token signatures:
-
-Bearer → Users
-
-System → Admins
+🧠 Role-based token signatures: Bearer (users) & System (admins)
 
 🔁 Secure refresh token endpoint
 
 🔄 Encrypted phone number field (AES)
 
-📩 Signup with Gmail (Google OAuth workflow)
+📩 Signup with Gmail (Google OAuth)
 
 🌍 CORS enabled for cross-origin requests
 
 ⏳ Token expiration handling with custom lifetimes
 
-📂 Modular MVC code structure
+📂 Modular code structure (controllers, services, middlewares)
 
-🌐 MongoDB Atlas with Mongoose ODM
+🌐 MongoDB Atlas with Mongoose
 
 🧪 Postman collection for API testing
 
@@ -62,7 +58,7 @@ sarahApp/
 │
 ├── src/
 │   ├── controllers/    # Route logic
-│   ├── middleware/     # Auth middleware & validation
+│   ├── middleware/     # Auth middleware
 │   ├── models/         # Mongoose schemas
 │   ├── routes/         # API route definitions
 │   ├── utils/          # Security utils: hashing, encryption, JWT
@@ -73,7 +69,7 @@ sarahApp/
 ├── package.json
 └── README.md
 ⚙️ Environment Variables
-Create a .env file in the root:
+Create a .env file in the root with:
 
 env
 Copy
@@ -95,26 +91,25 @@ REFRESH_SYSTEM_TOKEN_SIGNATURE="your-admin-refresh-token-secret"
 
 APP_EMAIL="your-email@gmail.com"
 APP_PASSWORD="your-email-password"
-FACEBOOK_LINK="https://facebook.com/..."
-INSTAGRAM_LINK="https://instagram.com/..."
-TWITTER_LINK="https://twitter.com/..."
-🛑 Do not commit this file — it’s ignored via .gitignore.
+🛑 Important: Do not commit this file. It’s ignored via .gitignore.
 
 ▶️ Getting Started
-Clone the repository:
+1. Clone the repository:
 
 bash
 Copy
 Edit
 git clone https://github.com/your-username/sarahApp.git
 cd sarahApp
-Install dependencies:
+2. Install dependencies:
 
 bash
 Copy
 Edit
 npm install
-Run the development server:
+3. Add your .env file.
+
+4. Run the development server:
 
 bash
 Copy
@@ -130,24 +125,25 @@ POST	/api/auth/signup	Register a new user
 POST	/api/auth/login	User login
 POST	/api/auth/signup/gmail	Signup with Gmail OAuth
 GET	/api/user/	Get user profile (access token)
-GET	/api/user/refresh-token	Refresh token for new creds
+GET	/api/user/refresh-token	Refresh token for new credentials
 POST	/api/auth/verify-email	Verify email with OTP
 
 🔐 Security Features
 AES encryption for phone numbers
 
-Role-based token signature handling (separate secrets for user/admin)
+Role-based token signature handling (different secrets for user/admin)
 
 Access & refresh token separation with independent expiration
 
 Middleware authentication with decoded JWT payload
 
-Secure token generation & storage
+Secure token generation & storage practices
 
 CORS-enabled API for cross-domain communication
 
 🛠 Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss the changes.
+Pull requests are welcome.
+For major changes, please open an issue first to discuss what you would like to change.
 
 🛡️ License
 This project is open source and available under the MIT License.
