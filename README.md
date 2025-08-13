@@ -1,7 +1,7 @@
 # 🧠 Sarah App Backend
 A secure and scalable backend API for the Sarah App, built with Node.js, Express, and MongoDB. This project includes user authentication, encrypted data handling, token-based session management, and secure refresh token workflows.
 
-🚀 Features
+## 🚀 Features
 ✅ User registration & login with validation
 
 📧 Email verification using Nodemailer & HTML templates
@@ -30,7 +30,7 @@ A secure and scalable backend API for the Sarah App, built with Node.js, Express
 
 🧪 Postman collection for API testing
 
-📦 Technologies Used
+## 📦 Technologies Used
 Node.js
 
 Express.js
@@ -49,7 +49,7 @@ nodemailer
 
 cors
 
-📁 Project Structure
+## 📁 Project Structure
 sarahApp/
 │
 ├── src/
@@ -65,7 +65,7 @@ sarahApp/
 ├── package.json
 └── README.md
 
-⚙️ Environment Variables
+## ⚙️ Environment Variables
 Create a .env file in the root with:
 
 env
@@ -127,7 +127,7 @@ POST	/api/auth/verify-email	Verify email with OTP
 GET	/api/user/	Get user profile (access token)
 GET	/api/user/refresh-token	Refresh token for new credentials
 
-🔐 Security Features
+## 🔐 Security Features
 
 Encrypted phone numbers using AES
 
