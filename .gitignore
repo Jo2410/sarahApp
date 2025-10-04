@@ -1,0 +1,15 @@
+# Node modules
+node_modules/
+scr/config
+
+# Environment variables
+.env
+*.env
+
+# Optional: Logs
+logs
+*.log
+
+# Optional: OS/system files
+.DS_Store
+Thumbs.db
